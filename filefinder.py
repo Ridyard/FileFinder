@@ -30,15 +30,16 @@ try:
                 matches.append(file) # ...if so, add to matches
                 matchFile.write(f'{os.path.join(root,file)}\n') # construct the file path
 
+    if len(matches) == 0:
+        matchFile.write(f'there were no {fileType} files returned')
+        print(f'there were no {fileType} files returned')
+
     matchFile.close()
     print()
+
 except Exception as e:
     print(f'an error occurred:\n{e}')
 
-
-if len(matches) == 0:
-    print(f'there were no {fileType} files returned')
-        
 for i in matches:
     print(i)
 
