@@ -3,7 +3,7 @@
 for example, search all .py files in My Documents tree'''
 
 from pathlib import Path
-import os
+import os, pyinputplus as pyip
 
 
 p = Path(input('input the parent directory: '))
@@ -11,7 +11,8 @@ if not p.exists(): # checks that the file path is valid
     print(f'file path not recognised - please check again & enter a valid file path\n"{p}"\ngoodbye')
     exit()
 
-fileType = input('what file extension do you want to return? ')
+
+fileType = pyip.inputStr('what file extension do you want to return? ') # module to validate the user input (can elaborate here)
 print(f'\n==========\n\nthe list of returned matches will be saved in a txt file at location:\n{p}\n\n==========')
 matches = [] # to hold the matched files
 
@@ -41,3 +42,5 @@ if len(matches) == 0:
 for i in matches:
     print(i)
 
+#TO DO: 
+# add exception to the firewall?
